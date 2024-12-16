@@ -1,0 +1,97 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  
+    padding: 1rem;
+  }
+  
+  .login-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-subtext {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .login-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-input {
+    width: 100%;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    background-color: #28a745; /* Cambié a un verde moderno */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #28a745; /* Verde más oscuro en hover */
+    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+  }
+  
+  .mat-form-field {
+    margin-bottom: 1rem;
+  }
+  
+  .mat-raised-button {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .mat-raised-button:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+    background-color: #218838 !important; /* Fondo más oscuro */
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .register-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }

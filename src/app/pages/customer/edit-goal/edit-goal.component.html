@@ -1,0 +1,52 @@
+<div class="edit-goal-container">
+    <h2 class="section-title">Editar Meta</h2>
+    <form [formGroup]="goalForm" (ngSubmit)="onSubmitGoal()" class="goal-form">
+  
+      <!-- Valor Objetivo -->
+      <div class="form-group">
+        <label for="targetValue" class="form-label">
+          {{ selectedHabit === 'Daily Exercise' ? 'Cantidad de días de ejercicio objetivo:' :
+             selectedHabit === 'Healthy Eating' ? 'Peso objetivo:' :
+             selectedHabit === 'Meditation' ? 'Cantidad de sesiones de meditación a la semana:' :
+             selectedHabit === 'Reading' ? 'Páginas Objetivo de Lectura:' :
+             selectedHabit === 'Sleep 8 hours' ? 'Horas de Sueño Objetivo:' : 'Valor Objetivo:' }}
+        </label>
+        <input type="number" id="targetValue" formControlName="targetValue" required class="form-input">
+      </div>
+  
+      <!-- Valor Actual -->
+      <div class="form-group">
+        <label for="currentValue" class="form-label">
+          {{ selectedHabit === 'Daily Exercise' ? 'Cantidad de días de ejercicio actual:' :
+             selectedHabit === 'Healthy Eating' ? 'Peso actual :' :
+             selectedHabit === 'Meditation' ? 'Sesiones Actuales de Meditación:' :
+             selectedHabit === 'Reading' ? 'Páginas Actuales Leídas:' :
+             selectedHabit === 'Sleep 8 hours' ? 'Horas Actuales de Sueño:' : 'Valor Actual:' }}
+        </label>
+        <input type="number" id="currentValue" formControlName="currentValue" required class="form-input">
+      </div>
+  
+      <!-- Fecha de Finalización -->
+      <div class="form-group">
+        <label for="endDate" class="form-label">Fecha de Finalización:</label>
+        <input type="datetime-local" id="endDate" formControlName="endDate" [min]="minDate" required class="form-input">
+      </div>
+  
+      <!-- Selección de Hábito -->
+      <div class="form-group">
+        <h3 class="habit-selection-title">Seleccionar Hábito</h3>
+        <div *ngIf="(habits || []).length > 0" class="habit-list">
+          <label *ngFor="let habit of habits" class="habit-option">
+            <input type="radio" formControlName="habitId" [value]="habit.id" (change)="onHabitChange(habit.name)" required class="habit-radio">
+            <span class="habit-name">{{ habit.name | habitType }}</span>
+          </label>
+        </div>
+      </div>
+  
+      <!-- Botón de Enviar -->
+      <button type="submit" [disabled]="goalForm.invalid" class="submit-button">
+        <i class="fas fa-check-circle"></i> Editar Meta
+      </button>
+    </form>
+  </div>
+  

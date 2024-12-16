@@ -1,0 +1,32 @@
+<div class="create-plan-container">
+  <header class="create-plan-header">
+    <h2>Crear Nuevo Plan de Salud</h2>
+  </header>
+
+  <form [formGroup]="planForm" (ngSubmit)="onSubmit()" class="create-plan-form">
+    <div class="form-group">
+      <label for="planName">
+        <i class="fas fa-file-signature"></i> Nombre del Plan:
+      </label>
+      <input type="text" id="planName" class="form-control" formControlName="planName" placeholder="Ingresa el nombre de tu plan" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">
+        <i class="fas fa-align-left"></i> Descripción:
+      </label>
+      <textarea id="description" class="form-control" formControlName="description" placeholder="Describe los objetivos y detalles de tu plan"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">
+        <i class="fas fa-calendar-alt"></i> Fecha de Finalización:
+      </label>
+      <input type="datetime-local" id="endDate" class="form-control" formControlName="endDate" [min]="minDate" />
+    </div>
+
+    <button type="submit" class="btn-create-plan" [disabled]="!planForm.valid">
+      <i class="fas fa-check"></i> Crear Plan
+    </button>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+<div class="edit-profile-container">
+    <div class="edit-profile-content">
+      <h2 class="edit-profile-header">Editar Perfil</h2>
+      <p class="edit-profile-subtext">Por favor, completa los campos para editar tu perfil</p>
+  
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="edit-profile-form">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Nombre de usuario</mat-label>
+            <input matInput formControlName="userName" placeholder="Introduce tu nombre de usuario">
+            <mat-error *ngIf="controlHasError('userName', 'required')">Este campo es obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Altura (en cm)</mat-label>
+            <input matInput formControlName="height" type="number" placeholder="Introduce tu altura">
+            <mat-error *ngIf="controlHasError('height', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('height', 'min')">La altura debe ser mayor que 0</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Peso (en kg)</mat-label>
+            <input matInput formControlName="weight" type="number" placeholder="Introduce tu peso">
+            <mat-error *ngIf="controlHasError('weight', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('weight', 'min')">El peso debe ser mayor que 0</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Edad</mat-label>
+            <input matInput formControlName="age" type="number" placeholder="Introduce tu edad">
+            <mat-error *ngIf="controlHasError('age', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('age', 'min')">La edad debe ser mayor o igual a 18</mat-error>
+            <mat-error *ngIf="controlHasError('age', 'max')">La edad no debe ser mayor a 120</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Género</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="MALE">Masculino</mat-option>
+              <mat-option value="FEMALE">Femenino</mat-option>
+              <mat-option value="OTHER">Otro</mat-option>
+            </mat-select>
+            <mat-error *ngIf="controlHasError('gender', 'required')">Este campo es obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-input full-width">
+            <mat-label>Condiciones de salud</mat-label>
+            <textarea matInput formControlName="healthConditions" placeholder="Introduce cualquier condición de salud" rows="4"></textarea>
+          </mat-form-field>
+        </div>
+  
+        <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="profileForm.invalid">
+          Editar Perfil
+        </button>
+      </form>
+    </div>
+  </div>

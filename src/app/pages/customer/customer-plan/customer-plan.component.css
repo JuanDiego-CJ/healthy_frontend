@@ -1,0 +1,132 @@
+.customer-plan-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  color: #006400;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.btn-create-goal {
+  background-color: #90EE90;
+  color: #006400;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-create-goal:hover {
+  background-color: #006400;
+  color: #FFFFFF;
+}
+
+.btn-edit-goal {
+  background-color: #90EE90;
+  color: #006400;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-edit-goal:hover {
+  background-color: #006400;
+  color: #FFFFFF;
+}
+
+.plan-details-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.plan-name {
+  color: #006400;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.plan-info p {
+  margin-bottom: 0.5rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.status-badge.active {
+  background-color: #90EE90;
+  color: #006400;
+}
+
+.status-badge.completed {
+  background-color: #4169E1;
+  color: #FFFFFF;
+}
+
+.status-badge.abandoned {
+  background-color: #fd2600;
+  color: #FFFFFF;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.goal-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.goal-name {
+  color: #006400;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.no-goals-message {
+  text-align: center;
+  color: #666666;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .plan-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-create-goal {
+    margin-top: 1rem;
+  }
+
+  .btn-edit-goal {
+    margin-top: 1rem;
+  }
+  .goals-grid {
+    grid-template-columns: 1fr;
+  }
+}

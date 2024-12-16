@@ -1,0 +1,37 @@
+<div *ngIf="plan" class="customer-plan-container">
+  <header class="plan-header">
+    <h2 class="section-title">Detalles del Plan</h2>
+    <button class="btn btn-primary btn-create-goal" (click)="createNewGoal()">
+      <i class="fas fa-plus-circle"></i> Crear nueva meta
+    </button>
+  </header>
+
+  <div class="plan-details-card">
+    <h3 class="plan-name">{{ plan.planName }}</h3>
+    <div class="plan-info">
+      <p><strong>Descripción:</strong> {{ plan.description }}</p>
+      <p><strong>Fecha de Inicio:</strong> {{ plan.startDate | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <p><strong>Fecha de Finalización:</strong> {{ plan.endDate | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <p><strong>Estado:</strong> <span class="status-badge" [ngClass]="plan.planStatus | lowercase">{{ plan.planStatus | planStatus }}</span></p>
+    </div>
+    <button class = "btn-create-goal"(click) ="goToEditPlan()">Editar</button>
+  </div>
+
+  <div class="goals-section">
+    <h3 class="section-title">Metas Asociadas</h3>
+    <div *ngIf="plan.goals && plan.goals.length > 0" class="goals-grid">
+      <div *ngFor="let goal of plan.goals" class="goal-card">
+        <h4 class="goal-name">{{ goal.habitName }}</h4>
+        <p><strong>Tipo de hábito:</strong> {{ goal.habitTypeName | habitType}}</p>
+        <p><strong>Valor Objetivo:</strong> {{ goal.targetValue }}</p>
+        <p><strong>Valor Actual:</strong> {{ goal.currentValue }}</p>
+        <p><strong>Estado:</strong> <span class="status-badge" [ngClass]="goal.goalStatus | lowercase">{{ goal.goalStatus | goalStatus }}</span></p>
+        <button class = "btn-edit-goal" (click)="editGoal(goal.goalId)">Editar</button>
+        <button class = "btn-edit-goal" (click)="deleteGoal(goal.goalId)">Eliminar</button>
+      </div>
+    </div>
+    <p *ngIf="!plan.goals || plan.goals.length === 0" class="no-goals-message">
+      <i class="fas fa-info-circle"></i> No hay metas asociadas a este plan.
+    </p>
+  </div>
+</div>

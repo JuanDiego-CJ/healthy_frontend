@@ -1,0 +1,14 @@
+<div class="plan-container" *ngIf="plans.length > 0; else noPlans">
+  <div class="plan-card" *ngFor="let plan of plans">
+    <h3 class="plan-name">{{ plan.name }}</h3>
+    <p class="plan-description">{{ plan.description }}</p>
+    <p class="plan-duration"><strong>Duración:</strong> {{ plan.durationDays }} días</p>
+    <p class="plan-price"><strong>Precio:</strong> ${{ plan.price }}</p>
+    <button class="btn-select-plan" (click)="goToPurchase(plan.id)">Seleccionar Plan</button>
+  </div>
+</div>
+
+<ng-template #noPlans>
+  <p>Ya te encuentras suscrito. Puedes acceder al apartado de recursos</p>
+  <button class="btn-select-plan" (click)="navigateToResource()">Ver recursos</button>
+</ng-template>

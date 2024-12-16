@@ -1,0 +1,17 @@
+<div *ngIf="resources.length > 0; else noResources" class="resource-container">
+    <div *ngFor="let resource of resources" class="resource-card">
+      <h3 class="resource-title">{{ resource.title }}</h3>
+      <p class="resource-description">{{ resource.description }}</p>
+      <p class="resource-type"><strong>Tipo de Recurso:</strong> {{ resource.resourceType | resourceType}}</p>
+      <a [href]="resource.content" target="_blank" class="resource-link">Ver Recurso</a>
+      <p class="expert-info">
+        <strong>Experto:</strong> {{ resource.expertFirstName }} {{ resource.expertLastName }} - 
+        <em>{{ resource.expertExpertise }}</em>
+      </p>
+    </div>
+  </div>
+  
+  <ng-template #noResources>
+    <p class="no-resources-message">No hay recursos disponibles en este momento.</p>
+  </ng-template>
+  

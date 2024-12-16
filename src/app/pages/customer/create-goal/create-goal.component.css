@@ -1,0 +1,97 @@
+.create-goal-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    color: #006400;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .goal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    color: #006400;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input {
+    padding: 0.5rem;
+    border: 1px solid #90EE90;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #006400;
+    box-shadow: 0 0 0 2px rgba(0, 100, 0, 0.1);
+  }
+  
+  .habit-selection-title {
+    color: #006400;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .habit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .habit-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .habit-radio {
+    margin-right: 0.5rem;
+  }
+  
+  .habit-name {
+    color: #006400;
+  }
+  
+  .submit-button {
+    background-color: #90EE90;
+    color: #006400;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .submit-button:hover:not(:disabled) {
+    background-color: #006400;
+    color: #FFFFFF;
+  }
+  
+  .submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .submit-button i {
+    margin-right: 0.5rem;
+  }

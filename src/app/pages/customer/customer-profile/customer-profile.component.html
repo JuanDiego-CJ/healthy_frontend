@@ -1,0 +1,44 @@
+<div class="profile-container">
+  <div *ngIf="profileExists && profile; else noProfile">
+    <header class="profile-header">
+      <h2>Perfil de {{ profile.name }}</h2>
+    </header>
+    <div class="profile-card">
+      <div class="profile-details">
+        <div class="profile-item">
+          <i class="fas fa-user"></i>
+          <strong>Nombre:</strong> {{ profile.name }}
+        </div>
+        <div class="profile-item">
+          <i class="fas fa-ruler-vertical"></i>
+          <strong>Altura:</strong> {{ profile.height }} cm
+        </div>
+        <div class="profile-item">
+          <i class="fas fa-weight"></i>
+          <strong>Peso:</strong> {{ profile.weight }} kg
+        </div>
+        <div class="profile-item">
+          <i class="fas fa-birthday-cake"></i>
+          <strong>Edad:</strong> {{ profile.age }} años
+        </div>
+        <div class="profile-item">
+          <i class="fas fa-venus-mars"></i>
+          <strong>Género:</strong> {{ profile.gender }}
+        </div>
+        <div class="profile-item">
+          <i class="fas fa-heartbeat"></i>
+          <strong>Condiciones de salud:</strong>
+          <p>{{ profile.healthConditions || 'No se han especificado condiciones de salud.' }}</p>
+        </div>
+        <button class = "edit-profile"(click) ="goToEdit()">Editar perfil</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noProfile>
+    <div class="no-profile-alert">
+      <h4>No se ha encontrado un perfil</h4>
+      <p>Parece que aún no has creado tu perfil. ¡Empieza tu viaje hacia una vida más saludable hoy!</p>
+    </div>
+  </ng-template>
+</div>

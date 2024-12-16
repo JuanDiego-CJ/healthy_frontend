@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="logo-circle">
+        <img src="icons/logo.png" alt="Healthy Logo" class="logo-img">
+      </div>
+      Healthy
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHome" aria-controls="navbarHome" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarHome">
+      <ul class="navbar-nav ms-auto">
+        @if(!isAuthenticated){
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-light me-2" routerLink="/auth/login" routerLinkActive="active">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary" routerLink="/auth/register" routerLinkActive="active">Registrarse</a>
+          </li>
+        }
+        @else {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer/home" routerLinkActive="active">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer/profile" routerLinkActive="active">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer/subscription" routerLinkActive="active">Suscripcion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-light" href="#" (click)="logout()">Cerrar Sesión</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

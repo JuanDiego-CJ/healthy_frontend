@@ -1,0 +1,45 @@
+<div class="customer-home-container">
+  <header class="welcome-header">
+    <h1 class="welcome-message">Bienvenido, <span class="user-name">{{profile.name}}</span></h1>
+  </header>
+
+  <section class="plans-section">
+    <div class="plans-header">
+      <h2>Tus Planes de Salud</h2>
+      <button class="btn-create-plan" (click)="createNewPlan()">
+        <i class="fas fa-leaf"></i> Nuevo Plan Saludable
+      </button>
+    </div>
+
+    <div class="plans-grid">
+      <div class="plan-card" *ngFor="let plan of activePlans">
+        <div class="plan-card-content">
+          <h3 class="plan-title">{{plan.planName}}</h3>
+          <p class="plan-description">{{plan.description}}</p>
+          <span class="plan-status" [ngClass]="{'active': plan.planStatus === 'ACTIVE', 'completed': plan.planStatus === 'COMPLETED', 'abandoned': plan.planStatus === 'ABANDONED'}">
+            {{plan.planStatus | planStatus}}
+          </span>
+        </div>
+        <button class="btn-plan-details" (click)="goToPlanDetails(plan.planId)">
+          Ver Detalles
+        </button>
+      </div>
+    </div>
+
+    <nav class="pagination-nav" *ngIf="totalPages > 1">
+      <button class="btn-nav" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+        <i class="fas fa-chevron-left"></i> Anterior
+      </button>
+      <div class="page-numbers">
+        <button class="btn-page" *ngFor="let page of pages" 
+                [class.active]="page === currentPage"
+                (click)="changePage(page)">
+          {{page}}
+        </button>
+      </div>
+      <button class="btn-nav" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+        Siguiente <i class="fas fa-chevron-right"></i>
+      </button>
+    </nav>
+  </section>
+</div>

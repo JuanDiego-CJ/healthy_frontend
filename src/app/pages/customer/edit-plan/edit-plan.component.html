@@ -1,0 +1,25 @@
+<div class="edit-plan-container">
+    <header class="edit-plan-header">
+      <h2>Editar Plan de Salud</h2>
+    </header>
+  
+    <form [formGroup]="planForm" (ngSubmit)="onSubmit()" class="edit-plan-form">
+      <div class="form-group">
+        <label for="planName">
+          <i class="fas fa-file-signature"></i> Nombre del Plan:
+        </label>
+        <input type="text" id="planName" class="form-control" formControlName="planName" placeholder="Ingresa el nombre de tu plan" />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">
+          <i class="fas fa-align-left"></i> Descripción:
+        </label>
+        <textarea id="description" class="form-control" formControlName="description" placeholder="Describe los objetivos y detalles de tu plan"></textarea>
+      </div>
+  
+      <button type="submit" class="btn-edit-plan" [disabled]="!planForm.valid">
+        <i class="fas fa-check"></i> Editar Plan
+      </button>
+    </form>
+  </div>

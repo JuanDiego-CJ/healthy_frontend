@@ -1,0 +1,30 @@
+<div class="login-container">
+
+    <h2 class="login-header">Bienvenido de nuevo</h2>
+    <p class="login-subtext">Por favor, inicia sesión para continuar</p>
+  
+    <form [formGroup]="recoveryForm" (ngSubmit)="onSubmit()" class="login-form">
+  
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="form-input">
+          <mat-label>Correo electronico</mat-label>
+          <input matInput formControlName="user" placeholder="Introduce gmail">
+          @if(controlHasError('user', 'required')) {
+            <mat-error>Este campo es obligatorio</mat-error>
+          }
+        </mat-form-field>
+      </div>
+  
+  
+      <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="recoveryForm.invalid">
+        Enviar
+      </button>
+    </form>
+  
+  
+    <p class="register-link">
+      ¿No tienes cuenta?
+      <a routerLink="/auth/register">Crea una cuenta aquí</a>
+    </p>
+  </div>

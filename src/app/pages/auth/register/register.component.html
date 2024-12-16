@@ -1,0 +1,52 @@
+<div class="register-container">
+    <h2 class="register-header">Crea tu cuenta</h2>
+    <p class="register-subtext">Regístrate para acceder a la plataforma</p>
+  
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="form-input">
+          <mat-label>Nombre de usuario</mat-label>
+          <input matInput formControlName="username" placeholder="Introduce tu nombre">
+          @if(controlHasError('username', 'required')) {
+            <mat-error>Este campo es obligatorio</mat-error>
+          }
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="form-input">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput formControlName="email" placeholder="Introduce tu correo">
+          @if(controlHasError('email', 'required')) {
+            <mat-error>Este campo es obligatorio</mat-error>
+          }
+          @if(controlHasError('email', 'email')) {
+            <mat-error>Introduzca un correo electrónico válido.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="form-input">
+          <mat-label>Contraseña</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="Introduce tu contraseña">
+          @if(controlHasError('password', 'required')) {
+            <mat-error>Este campo es obligatorio</mat-error>
+          }
+          @if(controlHasError('password', 'minlength')) {
+            <mat-error>La contraseña debe tener al menos 6 caracteres</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="registerForm.invalid">
+        Registrarse
+      </button>
+    </form>
+  
+    <p class="login-link">
+      ¿Ya tienes una cuenta?
+      <a routerLink="/auth/login">Inicia sesión aquí</a>
+    </p>
+  </div>
